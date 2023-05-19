@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ricardo.book.domain.Categoria;
 import com.ricardo.book.domain.Livro;
 import com.ricardo.book.repositories.CategoriaRepsitory;
-import com.ricardo.book.repositories.LivroRepsitory;
+import com.ricardo.book.repositories.LivroRepository;
 
 @Service
 public class DBService {
@@ -16,7 +16,7 @@ public class DBService {
 	@Autowired
 	private CategoriaRepsitory categoriaRepsitory;
 	@Autowired
-	private LivroRepsitory livroRepsitory;
+	private LivroRepository livroRepository;
 	
 	public void instanciaBaseDeDados() {
 		
@@ -34,7 +34,7 @@ public class DBService {
 		cat2.getLivros().addAll(Arrays.asList(l3,l4, l5));
 		
 		this.categoriaRepsitory.saveAllAndFlush(Arrays.asList(cat1, cat2,cat3));
-		this.livroRepsitory.saveAll(Arrays.asList(l1, l2, l3,l4, l5));
+		this.livroRepository.saveAll(Arrays.asList(l1, l2, l3,l4, l5));
 	}
 
 }
