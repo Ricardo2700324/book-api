@@ -55,6 +55,12 @@ public class LivroService {
 	}
 
 
+	public void delete(Integer id) {
+		Livro obj = findById(id);
+		livroRepository.delete(obj);
+	}
+
+
 
 	
 	
